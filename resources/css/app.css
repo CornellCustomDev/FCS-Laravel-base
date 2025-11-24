@@ -1,0 +1,54 @@
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+/* Preflight is excluded to avoid conflicts with CDS */
+/* @see https://tailwindcss.com/docs/preflight#disabling-preflight */
+/* @import "tailwindcss/preflight.css" layer(base); */
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Classes excluded to avoid conflicts with CDS */
+@source not inline("flex-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source not inline("container");
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@theme {
+    --font-sans: 'freight-sans-pro', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Form fields */
+[data-flux-field] {
+    @apply max-w-[600px];
+
+    form.no-constrain & {
+        @apply max-w-full!;
+    }
+
+    [data-flux-label] {
+        @apply text-base font-medium mb-1;
+    }
+
+    [data-flux-input] input {
+        @apply h-8 px-2 py-1.5 mb-5;
+        @apply rounded-none border-[#808080] dark:border-white/[0.4];
+        @apply inset-shadow-[0_1px_0_0_rgba(0,0,0,0.1)];
+        @apply text-base text-black dark:text-white;
+    }
+
+    [data-flux-error] {
+        @apply -mt-4! mb-5;
+        [data-flux-icon] {
+            @apply align-text-bottom translate-y-0.5;
+        }
+    }
+
+    [data-flux-description] {
+        @apply mb-5;
+        @apply text-base text-[#707070] dark:text-[#a1a1a1];
+    }
+}

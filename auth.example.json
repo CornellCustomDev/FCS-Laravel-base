@@ -1,0 +1,11 @@
+{
+    "http-basic": {
+        "composer.fluxui.dev": {
+            "username": "USERNAME",
+            "password": "PASSWORD"
+        }
+    },
+    "github-oauth": {
+        "github.com": "GITHUB_TOKEN"
+    }
+}
