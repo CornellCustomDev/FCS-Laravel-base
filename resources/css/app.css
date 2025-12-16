@@ -6,7 +6,7 @@
 /* @import "tailwindcss/preflight.css" layer(base); */
 @import "tailwindcss/utilities.css" layer(utilities);
 
-@import '../../vendor/livewire/flux/dist/flux.css';
+@import "../../vendor/livewire/flux/dist/flux.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -14,16 +14,34 @@
 @source not inline("flex-{1,2,3,4,5,6,7,8,9,10,11,12}");
 @source not inline("container");
 
-@source '../views';
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source "../views";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
 
 @theme {
-    --font-sans: 'freight-sans-pro', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: "freight-sans-pro", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+
+    /* Colors */
+    --color-cds-blue: #006699;
+    --color-cds-light-gray: #dbdbdb;
+    --color-cds-dark-silver: #707070;
+    --color-cds-warning-red: #db2800;
+    --color-cds-medium-gray: #808080;
+}
+
+@utility default-focus-ring {
+    outline: -webkit-focus-ring-color auto 1px;
+}
+
+@utility focus-ring {
+    @apply focus:default-focus-ring focus:shadow-none;
 }
 
 /* Form fields */
 [data-flux-field] {
     @apply max-w-[600px];
+    @apply mb-5;
 
     form.no-constrain & {
         @apply max-w-full!;
@@ -31,24 +49,182 @@
 
     [data-flux-label] {
         @apply text-base font-medium mb-1;
+        @apply w-max;
     }
 
     [data-flux-input] input {
         @apply h-8 px-2 py-1.5 mb-5;
-        @apply rounded-none border-[#808080] dark:border-white/[0.4];
+        @apply rounded-none border-cds-medium-gray dark:border-white/[0.4];
         @apply inset-shadow-[0_1px_0_0_rgba(0,0,0,0.1)];
         @apply text-base text-black dark:text-white;
+        &[aria-invalid="true"] {
+            @apply bg-[#ffb3a133] border-[#ff2f00cc];
+        }
     }
 
     [data-flux-error] {
         @apply -mt-4! mb-5;
+        @apply text-cds-warning-red dark:text-[#e95858];
         [data-flux-icon] {
             @apply align-text-bottom translate-y-0.5;
         }
     }
 
     [data-flux-description] {
-        @apply mb-5;
-        @apply text-base text-[#707070] dark:text-[#a1a1a1];
+        @apply mb-1;
+        @apply text-base text-cds-dark-silver dark:text-neutral-400;
+    }
+
+    /* Checkboxes */
+    [data-flux-checkbox-group] {
+        [data-flux-field] {
+            @apply mb-0;
+        }
+        [data-flux-checkbox] {
+            @apply ml-0;
+            @apply cursor-pointer;
+            [data-flux-checkbox-indicator] {
+                @apply mt-[1px] ml-0 mr-0;
+                @apply w-[18px] h-[18px];
+                @apply border border-gray-600 dark:border-white/50 rounded-xs;
+                @apply bg-gray-300/20 bg-no-repeat bg-center;
+
+                [data-checked] & {
+                    @apply rounded-xs;
+                    @apply bg-cds-blue dark:bg-transparent;
+                    @apply text-white;
+                    svg {
+                        @apply dark:text-white;
+                    }
+                }
+            }
+        }
+        [data-flux-label] {
+            @apply ml-2;
+        }
+        + [data-flux-error] {
+            margin-top: calc(var(--spacing) * 0) !important;
+        }
+    }
+
+    /* Select */
+    [data-flux-select-native] {
+        @apply cursor-pointer;
+        @apply h-8;
+        @apply py-0;
+        @apply w-max;
+        @apply rounded-none border-cds-medium-gray shadow-none;
+        @apply text-base text-black dark:text-white;
+        + [data-flux-error] {
+            margin-top: calc(var(--spacing) * 0) !important;
+        }
+    }
+
+    /* Text Editor */
+    [data-flux-editor] {
+        @apply border-cds-medium-gray rounded-none;
+        ui-toolbar {
+            > div {
+                @apply ml-0 mr-0;
+                [data-editor="heading"] {
+                    @apply top-[3px];
+                }
+            }
+            button {
+                @apply cursor-pointer;
+                @apply bg-transparent dark:bg-transparent;
+                @apply min-w-[unset];
+                @apply px-3;
+                svg {
+                    @apply text-cds-medium-gray hover:text-black dark:text-white dark:hover:text-cds-light-gray;
+                }
+            }
+        }
+        + [data-flux-error] {
+            margin-top: calc(var(--spacing) * 1) !important;
+        }
+        .ProseMirror-focused {
+            @apply focus:default-focus-ring;
+        }
+    }
+}
+
+/* Buttons */
+[data-flux-button] {
+    @apply rounded-none shadow-none;
+    @apply text-base font-normal;
+    @apply px-5 py-1;
+    @apply mr-1 mb-2;
+
+    &[type="submit"] {
+        @apply text-white;
+        @apply bg-cds-blue hover:bg-[#0077b3] focus:bg-[#0077b3];
+    }
+
+    &[type="reset"] {
+        @apply text-black;
+        @apply bg-cds-light-gray hover:bg-[#d1d1d1] focus:bg-[#d1d1d1];
+    }
+}
+
+/* Error Message Callout */
+[data-flux-callout] {
+    @apply rounded-none;
+    @apply p-3;
+    @apply mb-6;
+    @apply bg-[#ffb3a133] border-[#d9988966];
+    [data-flux-icon] {
+        @apply align-text-bottom translate-y-1.25;
+        @apply text-cds-warning-red dark:text-[#e95858];
+    }
+}
+/* Tables */
+
+[data-flux-table] {
+    @apply w-full border-collapse;
+    @apply whitespace-normal;
+
+    [data-flux-column] {
+        @apply text-base font-semibold text-black dark:text-white;
+        @apply px-2.5 py-1.5;
+
+        [data-flux-table-sortable] {
+            @apply cursor-pointer;
+            @apply font-sans text-base font-semibold;
+            @apply border-none;
+            @apply bg-transparent;
+        }
+    }
+
+    [data-flux-cell] {
+        @apply table-cell;
+        @apply text-base text-black dark:text-white;
+        @apply px-2.5 py-1.5;
+        @apply border-r-0;
+        [data-flux-button] {
+            @apply cursor-pointer;
+            @apply font-sans text-base;
+            @apply text-black hover:text-gray-500 dark:text-white dark:hover:text-cds-light-gray;
+            @apply bg-transparent;
+            @apply border-none;
+            @apply mr-0 mb-0;
+            @apply relative top-1;
+        }
+        [data-flux-menu-item] {
+            @apply cursor-pointer;
+            @apply font-sans text-sm;
+            @apply bg-transparent border-none;
+            @apply hover:text-cds-warning-red;
+        }
+    }
+}
+[data-flux-pagination] {
+    button {
+        @apply cursor-pointer;
+        @apply border-0 bg-white;
+        @apply font-sans;
+    }
+    [aria-current="page"] {
+        @apply font-bold;
     }
 }

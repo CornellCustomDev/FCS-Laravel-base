@@ -38,7 +38,7 @@
                     <button class="mobile-button" id="mobile-nav">Main Menu</button>
                 </div>
                 <div class="site-logo">
-                    <a href="https://www.cornell.edu"><img src="{{ asset('cds/images/cornell/legacy/bold_cornell_seal_simple_white.svg') }}" alt="Cornell University" width="100" height="100"></a>
+                    <a href="https://www.cornell.edu"><img src="{{ asset('cds/images/cornell/cornell_seal_simple_web_white.svg') }}" alt="Cornell University" width="100" height="100"></a>
                 </div>
                 <div class="site-branding">
                     <p class="site-title serif">{{ $title }}</p>
