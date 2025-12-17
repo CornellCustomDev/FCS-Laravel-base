@@ -28,7 +28,7 @@
     <!-- @see https://fluxui.dev/docs/dark-mode#disabling-dark-mode-handling -->
     @fluxAppearance
 </head>
-<body class="fill" x-data x-effect="document.body.classList.toggle('dark', $flux.dark)">
+<body class="fill secondary-page cu-seal cu-seal-right search-facilities-page" x-data x-effect="document.body.classList.toggle('dark', $flux.dark)">
 
 <x-layouts.header :title="$title ?? (config('app.name'))" :subtitle="$subtitle ?? (config('app.subtitle'))"/>
 
