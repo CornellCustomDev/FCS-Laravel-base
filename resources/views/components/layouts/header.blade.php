@@ -1,5 +1,4 @@
 <header id="header" class="band dark" aria-label="Site banner">
-
     <div id="skipnav"><a href="#main">Skip to main content</a></div>
 
     <!-- Start Cornell Branding ////////////////////////////////////////////// -->
@@ -63,35 +62,5 @@
             </div>
 
         </header>
-    </div>
-
-    <div id="cu-header" class="cu-header">
-
-        <div class="navbar navbar-logo nav-right dark red fill">
-            <div class="container">
-{{--                <div class="logo">--}}
-{{--                    <a href="https://www.cornell.edu"><img src="{{ asset('cds/images/cornell/cornell_reduced_white_41.svg') }}" alt="Cornell University" width="183" height="41"></a>--}}
-{{--                </div>--}}
-                <!-- Utility Navigation.  Refer to cornellcustomdev.github.io/cds-docs/patterns/utility_navigation.md for details -->
-            </div>
-        </div>
-
-        <div class="container padded">
-            <div class="content brand">
-                <div class="buttons">
-                    <button class="mobile-button" id="cu-search-button">Toggle Search Form</button>
-                    <button class="mobile-button" id="mobile-nav">Main Menu</button>
-                </div>
-                <div class="site-logo">
-                    <a href="https://www.cornell.edu"><img src="{{ asset('cds/images/cornell/cornell_seal_simple_web_white.svg') }}" alt="Cornell University" width="100" height="100"></a>
-                </div>
-                <div class="site-branding">
-                    <p class="site-title serif">{{ $title }}</p>
-                    <p class="site-subtitle">{{ $subtitle }}</p>
-                </div>
-            </div>
-        </div>
-
-        <x-layouts.main-nav/>
     </div>
 </header>
