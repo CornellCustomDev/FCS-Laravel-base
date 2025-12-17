@@ -2,8 +2,6 @@
 
     <div id="skipnav"><a href="#main">Skip to main content</a></div>
 
-    <livewire:toasts />
-
     <!-- Start Cornell Branding ////////////////////////////////////////////// -->
 
     <div id="cu-search" class="cu-search">
