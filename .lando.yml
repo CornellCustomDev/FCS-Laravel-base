@@ -2,6 +2,6 @@ name: cd-fcs-base
 recipe: laravel
 config:
   webroot: ./public
-  php: 8.2
+  php: 8.3
   cache: none
   composer_version: 2-latest
