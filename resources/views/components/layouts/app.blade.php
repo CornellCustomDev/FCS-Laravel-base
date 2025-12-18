@@ -7,12 +7,18 @@
 
     <title>{{ $title }}</title>
 
-    <link rel="icon" href="{{ asset('cds/favicon.ico') }}" type="image/vnd.microsoft.icon"/>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/vnd.microsoft.icon"/>
 
     @vite('resources/css/flux-cds.css')
-    <style>
-        @import "{{ asset('cds/css/base.css') }}" layer(base);
-    </style>
+    {{-- <style>
+        @import "{{ asset('cds/css/base.scss') }}" layer(base);
+        @import "{{ asset('cds/css/cornell.css') }}" layer(components);
+    </style> --}}
+    <link href="{{ URL::asset('cds/css/base.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('cds/css/cornell.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('cds/css/fcs.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('cds/css/fcs_wa.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('cds/css/cwd_utilities.css') }}" rel="stylesheet">
     @vite('resources/css/app.scss')
 
     <!-- Cornell.edu Typography -->
@@ -31,6 +37,8 @@
 <body class="fill secondary-page cu-seal cu-seal-right search-facilities-page" x-data x-effect="document.body.classList.toggle('dark', $flux.dark)">
 
 <x-layouts.header :title="$title ?? (config('app.name'))" :subtitle="$subtitle ?? (config('app.subtitle'))"/>
+
+<x-layouts.main-nav/>
 
 <main id="main" class="band" tabindex="-1">
 {{ $slot }}

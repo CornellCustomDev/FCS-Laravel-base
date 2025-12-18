@@ -1,4 +1,4 @@
-<article id="main-article">
+<article id="main-article" class="container-fluid">
     <div class="region padded">
         <div class="container">
             <div class="layout">
