@@ -37,19 +37,25 @@
             </div>
         </div>
     </div>
-    <div class="band sub-footer padded-medium">
-        <div class="container">
-            <div class="subfooter-links">
-                <ul>
-                    <li><a href="https://www.cornell.edu">Cornell University</a> ©{{ date('Y') }}</li>
-                    <li><a href="https://privacy.cornell.edu/">University Privacy</a></li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="https://accessibility.cornell.edu/information-technology/web-accessibility/web-accessibility-assistance/">Web Accessibility Assistance</a>
-                    </li>
-                </ul>
+
+    <div class="sub-footer">
+        <div class="container-fluid sidebar-left">
+            <div class="row">
+                <div class="content">
+                    <div class="three-col padded no-margin">
+                        <div>
+                            <span class="fa fa-lg fa-fw fa-universal-access space-right" aria-hidden="true"></span>
+                            <a href="https://www.cornell.edu/accessibility-assistance.cfm">Web Accessibility Assistance</a>
+                        </div>
+                        <div>
+                            <span class="fa fa-lg fa-fw fa-lock space-right" aria-hidden="true"></span>
+                            <a href="https://privacy.cornell.edu/">University Privacy</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
+
 </footer>
