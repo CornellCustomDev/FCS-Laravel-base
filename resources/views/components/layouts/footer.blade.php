@@ -17,9 +17,9 @@
                     <div>
                         <h2 class="h2">See Also</h2>
                         <ul class="list-menu vertical">
-                            <li><a href="{{config('app.fcssite')}}/contact-fcs">Contact FCS</a></li>
-                            <li><a href="{{config('app.fcssite')}}/about-us/fcs-org-chart">Org Chart</a></li>
-                            <li><a href="{{config('app.fcssite')}}/about-us/leadership">FCS Leadership</a></li>
+                            <li><a href="https://fcs.cornell.edu/contact-fcs">Contact FCS</a></li>
+                            <li><a href="https://fcs.cornell.edu/about-us/fcs-org-chart">Org Chart</a></li>
+                            <li><a href="https://fcs.cornell.edu/about-us/leadership">FCS Leadership</a></li>
                             <li><a href="https://hr.cornell.edu/jobs">Careers</a></li>
                         </ul>
                     </div>
