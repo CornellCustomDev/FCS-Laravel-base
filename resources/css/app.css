@@ -1,4 +1,4 @@
-//Typography
+/* Typography */
 
 h1,
 h2,
@@ -12,9 +12,9 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica Neue, sans-serif;
+    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica Neue, sans-serif;
 }
-
 
 h1,
 .h1 {
@@ -39,7 +39,8 @@ h4,
 #main {
     h2 {
         color: #333;
-        font-family: Iowan Old Style, Georgia, Athelas, Baskerville, Sitka Display, Constansia, serif;
+        font-family: Iowan Old Style, Georgia, Athelas, Baskerville,
+            Sitka Display, Constansia, serif;
     }
 
     .secondary h2 {
@@ -65,10 +66,9 @@ h4,
     line-height: 1.7;
 }
 
-//Site Branding - FCS Type Treatment
+/* Site Branding - FCS Type Treatment */
 
 #header {
-
     .site-branding {
         display: block;
         margin: 0 auto 4px;
@@ -126,7 +126,8 @@ h4,
                     font-weight: 500;
                     font-style: italic;
                     text-transform: none;
-                    font-family: Iowan Old Style, Georgia, Athelas, Baskerville, Sitka Display, Constansia, serif;
+                    font-family: Iowan Old Style, Georgia, Athelas, Baskerville,
+                        Sitka Display, Constansia, serif;
                     position: relative;
                     top: -0.12em;
                     padding: 0 0.12em;
@@ -136,18 +137,18 @@ h4,
     }
 }
 
-//Navigation Menu
+/* Navigation Menu */
 .navbar.fill.dark {
     background-color: #333;
 
-    li:hover>a:not(.link-button),
+    li:hover > a:not(.link-button),
     li a:not(.link-button):hover,
     li a:not(.link-button):focus {
         background: rgba(0, 0, 0, 0.3);
     }
 }
 
-//Footer
+/* Footer */
 
 .main-footer {
     background-color: #333;

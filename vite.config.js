@@ -6,8 +6,8 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                "resources/css/flux-cds.css",
-                "resources/css/app.scss",
+                "resources/css/laravel-base.css",
+                "resources/css/app.css",
                 "resources/js/app.js",
             ],
             refresh: true,
