@@ -9,11 +9,11 @@
 
     <link rel="icon" href="{{ asset('cds/favicon.ico') }}" type="image/vnd.microsoft.icon"/>
 
-    @vite('resources/css/flux-cds.css')
+    @vite('resources/css/laravel-base.css')
     <style>
         @import "{{ asset('cds/css/base.css') }}" layer(base);
     </style>
-    @vite('resources/css/app.scss')
+    @vite('resources/css/app.css')
 
     <!-- Cornell.edu Typography -->
     <link rel="stylesheet" href="https://use.typekit.net/nwp2wku.css">
