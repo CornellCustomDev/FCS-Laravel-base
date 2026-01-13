@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'CD Laravel Base'),
-    'subtitle' => env('APP_SUBTITLE', 'Custom Development'),
+    'name' => env('APP_NAME', 'FCS Laravel Base'),
+    'subtitle' => env('APP_SUBTITLE', 'Facilities and Campus Services'),
 
     /*
     |--------------------------------------------------------------------------
