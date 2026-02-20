@@ -1,8 +1,14 @@
-# Custom Development Laravel/Livewire Starter Kit
+# Custom Development FCS Starter Kit
+
+This is a [Laravel custom starter kit](https://laravel.com/docs/12.x/starter-kits#community-maintained-starter-kits) for FCS projects. It includes the Cornell Design System and FluxPro component libraries, as well as some example components.
+
+This project is meant to be used via the Laravel installer. You can create a new project with this starter kit by running:
+
+```bash
+laravel new fcs-project-name --using=cornell-custom-dev/fcs-laravel-base
+```
 
 ## Setup
-
-Run `composer setup` after cloning to set up your environment.
 
 FluxPro components will not be accessible until you provide Flux repo credentials in auth.json.
 
