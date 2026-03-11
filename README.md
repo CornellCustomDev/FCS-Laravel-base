@@ -23,7 +23,7 @@ Add FluxPro and GitHub credentials to `~/.composer/auth.json`:
 ## Create a new project
 
 ```bash
-composer create-project cornell-custom-dev/fcs-laravel-base my-project-name
+composer create-project --no-install cornell-custom-dev/fcs-laravel-base my-project-name
 cd my-project-name
 lando start
 ```
