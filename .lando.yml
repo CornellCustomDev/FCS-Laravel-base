@@ -5,3 +5,29 @@ config:
   php: 8.3
   cache: none
   composer_version: 2-latest
+
+services:
+  appserver:
+#    build_as_root:
+#      - apt-get update -y && apt-get install -y libaio1t64 unzip wget
+#      - ln -sf /usr/lib/aarch64-linux-gnu/libaio.so.1t64 /usr/lib/aarch64-linux-gnu/libaio.so.1
+#      - wget https://download.oracle.com/otn_software/linux/instantclient/1930000/instantclient-basic-linux.arm64-19.30.0.0.0dbru.zip -O /tmp/ic-basic.zip
+#      - wget https://download.oracle.com/otn_software/linux/instantclient/1930000/instantclient-sdk-linux.arm64-19.30.0.0.0dbru.zip -O /tmp/ic-sdk.zip
+#      - unzip -q -o /tmp/ic-basic.zip -d /opt/oracle
+#      - unzip -q -o /tmp/ic-sdk.zip -d /opt/oracle
+#      - echo /opt/oracle/instantclient_19_30 > /etc/ld.so.conf.d/oracle-instantclient.conf
+#      - ldconfig
+#      - echo 'instantclient,/opt/oracle/instantclient_19_30' | pecl install oci8 > /dev/null 2>&1
+#      - docker-php-ext-enable oci8
+    run:
+      - composer setup
+  node:
+    type: node:24
+    build:
+      - npm install
+    run:
+      - npm run build
+
+tooling:
+  npm:
+    service: node
