@@ -24,9 +24,10 @@ services:
 #      - echo 'instantclient,/opt/oracle/instantclient_19_30' | pecl install oci8 > /dev/null 2>&1
 #      - docker-php-ext-enable oci8
     run:
+      - composer install
       - php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - cp -R vendor/cornell-custom-dev/cds public/
       - php artisan key:generate
+      - cp -R vendor/cornell-custom-dev/cds public/
       - php artisan optimize
   node:
     type: node:24
