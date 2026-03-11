@@ -9,10 +9,8 @@ config:
 services:
   appserver:
     overrides:
-      environment:
-        COMPOSER_HOME: /var/www/.composer
       volumes:
-        - ${HOME}/.composer:/var/www/.composer:cached
+        - ${HOME}/.composer/auth.json:/var/www/.composer/auth.json:ro
 #    build_as_root:
 #      ## Oracle Instant Client installation for ARM64 architecture (i.e., Apple Silicon)
 #      - apt-get update -y && apt-get install -y libaio1t64 unzip wget
