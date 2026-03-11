@@ -1,45 +1,46 @@
-# Custom Development FCS Starter Kit
+# FCS Laravel Starter Kit
 
-This is a [Laravel custom starter kit](https://laravel.com/docs/12.x/starter-kits#community-maintained-starter-kits) for FCS projects. It includes the Cornell Design System and FluxPro component libraries, as well as some example components.
+Laravel starter kit for FCS projects, including the Cornell Design System and FluxPro component libraries.
 
-This project is meant to be used via the Laravel installer. You can create a new project with this starter kit by running:
+## Local credentials
 
-```bash
-laravel new fcs-project-name --using=cornell-custom-dev/fcs-laravel-base
+Add FluxPro and GitHub credentials to `~/.composer/auth.json`:
+
+```json
+{
+    "http-basic": {
+        "composer.fluxui.dev": {
+            "username": "YOUR_FLUXPRO_EMAIL",
+            "password": "YOUR_FLUXPRO_LICENSE_KEY"
+        }
+    },
+    "github-oauth": {
+        "github.com": "YOUR_GITHUB_TOKEN"
+    }
+}
 ```
 
-## Setup
+## Create a new project
 
-FluxPro components will not be accessible until you provide Flux repo credentials in auth.json.
+```bash
+composer create-project cornell-custom-dev/fcs-laravel-base my-project-name
+cd my-project-name
+lando start
+```
 
-_Note: If you run composer setup inside the lando container you will need to provide a GitHub Token to access the private https://github.com/CornellCustomDev/cds repository._
+## Daily use
 
-## Run npm
-Run the following commands for local environment:
+```bash
+lando artisan <command>
+lando composer <command>
+lando npm <command>
+```
 
-    npm run build
-    lando artisan optimize:clear
+## Layout and components
 
-## Recreate database with User table data:
+- Layout: [resources/views/components/cds/layout/app.blade.php](resources/views/components/cds/layout/app.blade.php) — [CDS docs](https://cornellcustomdev.github.io/cds-docs/)
+- Components: [resources/views/examples/form.blade.php](resources/views/examples/form.blade.php) — [FluxPro docs](https://fluxui.dev/docs)
 
-Run this command to recreate your database and seed users table:
-
-    lando artisan migrate:fresh --seed  
-
-**Notes**: The migrate:refresh command will roll back all of your migrations and then execute the migrate command. This command effectively re-creates your entire database.
-
-## Layout
-
-The Layout is built with the Cornell Design System: https://cornellcustomdev.github.io/cds-docs/
-
-Edit the layout starting at [resources/views/components/cds/layout/app.blade.php](resources/views/components/cds/layout/app.blade.php)
-
-## Components
-
-Components are built with [FluxPro](https://fluxui.dev/docs). Examples of components are at [resources/views/examples/form.blade.php](resources/views/examples/form.blade.php)
-
-Available components:
-- [Text input](resources/views/components/cds/forms/input.blade.php)
 
 ### Using components
 Components are used in blade files with the `<x-cds` syntax. For example, to use the text input forms component, you would write:
