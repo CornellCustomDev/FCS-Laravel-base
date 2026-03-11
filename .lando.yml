@@ -27,8 +27,11 @@ services:
       - composer install
       - php -r "file_exists('.env') || copy('.env.example', '.env');"
       - php artisan key:generate
+      - php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
       - cp -R vendor/cornell-custom-dev/cds public/
       - php artisan optimize
+  # Comment out this line to install a full database for the application.
+  database: false
   node:
     type: node:24
     build:
