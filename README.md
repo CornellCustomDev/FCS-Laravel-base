@@ -23,9 +23,19 @@ Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json
 ## Create a new project
 
 ```bash
-composer create-project --no-install cornell-custom-dev/fcs-laravel-base my-project-name
-cd my-project-name
+composer create-project --no-install cornell-custom-dev/fcs-laravel-base your-project-name
+cd your-project-name
 lando start
+```
+
+The package-install script in [`/scripts/package-install.php`](scripts/package-install.php) will set up a local git repository and make an initial commit. 
+
+`lando start` will run composer install and initialize the application, including creating a local MySQL database. After running lando start you will also be able to commit the composer.lock, package-lock.json, and vendor directory. 
+
+To create a new GitHub repository with the [GitHub CLI](https://cli.github.com/) based on the new project:
+
+```bash
+gh repo create CornellCustomDev/your-project-name --private --source=. --remote=origin --push
 ```
 
 ## Daily use
