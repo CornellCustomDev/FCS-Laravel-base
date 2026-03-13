@@ -26,7 +26,7 @@ file_put_contents($file, $content);
 // .env.example — APP_NAME and APP_URL
 $file = '.env.example';
 $content = file_get_contents($file);
-$content = str_replace(':project_name', $name, $content);
+$content = str_replace(':project_name', $textName, $content);
 $content = str_replace(':project_slug', $slug, $content);
 file_put_contents($file, $content);
 
@@ -40,7 +40,7 @@ file_put_contents($file, $content);
 // README.project.md — replace :project_slug and overwrite main README.md
 $file = 'README.project.md';
 $content = file_get_contents($file);
-$content = str_replace(':project_name', $name, $content);
+$content = str_replace(':project_name', $textName, $content);
 $content = str_replace(':project_description', $description, $content);
 $content = str_replace(':project_slug', $slug, $content);
 file_put_contents('README.md', $content);
