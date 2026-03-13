@@ -4,7 +4,7 @@ Laravel starter kit for FCS projects, including the Cornell Design System and Fl
 
 ## Local credentials
 
-Add FluxPro and GitHub credentials to `~/.composer/auth.json`:
+Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json`, which will get mapped into the environment so you can access private repositories:
 
 ```json
 {

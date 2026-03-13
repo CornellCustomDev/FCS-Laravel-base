@@ -47,3 +47,22 @@ file_put_contents('README.md', $content);
 unlink($file);
 
 echo "Updated .lando.yml, .env.example, composer.json, and README.md.\n";
+
+// Run composer install an initial php config
+exec('composer install');
+file_exists('.env') || copy('.env.example', '.env');
+
+// We now have enough to generate the app key
+exec('php artisan key:generate');
+
+// Set up for local git
+echo "Commenting out /vendor in .gitignore and initializing git repository...\n";
+$file = '.gitignore';
+$content = file_get_contents($file);
+$content = preg_replace('/^\/vendor/m', '# /vendor', $content);
+file_put_contents($file, $content);
+
+exec('git init');
+exec('git add .');
+exec('git commit -m "Initial commit"');
+exec('git branch -M main');
