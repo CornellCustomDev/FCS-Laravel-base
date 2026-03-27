@@ -16,8 +16,8 @@
     },
     "require": {
         "php": "^8.3",
-        "cornell-custom-dev/cds": "^1.4.1@beta",
-        "laravel/framework": "^12.55",
+        "cornell-custom-dev/cds": "^1.4.3@beta",
+        "laravel/framework": "^12.56",
         "laravel/tinker": "^2.11",
         "livewire/flux": "^2.13",
         "livewire/flux-pro": "^2.13",
@@ -28,7 +28,7 @@
         "fakerphp/faker": "^1.24",
         "laravel/pail": "^1.2",
         "laravel/pint": "^1.29",
-        "laravel/sail": "^1.54",
+        "laravel/sail": "^1.55",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.9",
         "phpunit/phpunit": "^11.5"
