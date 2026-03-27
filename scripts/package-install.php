@@ -23,8 +23,8 @@ $content = file_get_contents($file);
 $content = preg_replace('/^name: .+/m', "name: $slug", $content);
 file_put_contents($file, $content);
 
-// .env.example.bak — APP_NAME and APP_URL
-$file = '.env.example.bak';
+// .env.example — APP_NAME and APP_URL
+$file = '.env.example.stub';
 $content = file_get_contents($file);
 $content = str_replace(':project_name', $textName, $content);
 $content = str_replace(':project_slug', $slug, $content);
