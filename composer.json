@@ -75,11 +75,11 @@
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php scripts/package-install.php"
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "cp -R vendor/cornell-custom-dev/cds public/",
+            "@php scripts/package-install.php",
             "@php artisan key:generate --ansi"
         ],
         "pre-package-uninstall": [

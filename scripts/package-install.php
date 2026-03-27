@@ -29,6 +29,7 @@ $content = file_get_contents($file);
 $content = str_replace(':project_name', $textName, $content);
 $content = str_replace(':project_slug', $slug, $content);
 file_put_contents($file, $content);
+file_put_contents($file.'.bak', $content);
 
 // composer.json — name field
 $file = 'composer.json';
