@@ -11,3 +11,6 @@ services:
     overrides:
       volumes:
         - ${HOME}/.composer/auth.json:/var/www/.composer/auth.json:ro
+    run:
+      # From Laravel composer.json post-create-project-cmd
+      - php artisan migrate --graceful --ansi
