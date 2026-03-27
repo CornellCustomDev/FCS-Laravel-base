@@ -81,7 +81,7 @@
             "cp -R vendor/cornell-custom-dev/cds public/",
             "@php scripts/package-install.php",
             "@php artisan key:generate --ansi",
-            "@lando start"
+            "lando start"
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
