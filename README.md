@@ -2,6 +2,7 @@
 
 This is a [Laravel custom starter kit](https://laravel.com/docs/12.x/starter-kits#community-maintained-starter-kits) for FCS projects, including the Cornell Design System and FluxPro component libraries.
 
+
 ## Local credentials
 
 Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json`, which will get mapped into the environment so you can access private repositories:
@@ -20,6 +21,7 @@ Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json
 }
 ```
 
+
 ## Create a new project
 
 ```bash
@@ -28,14 +30,24 @@ cd your-project-name
 lando start
 ```
 
+The package-install script in [`/scripts/package-install.php`](scripts/package-install.php) will set up a local git repository and make an initial commit.
+
+`lando start` will run composer install and initialize the application, including creating a local MySQL database. After running lando start you will also be able to commit the composer.lock, package-lock.json, and vendor directory.
+
+To create a new GitHub repository with the [GitHub CLI](https://cli.github.com/) based on the new project:
+
+```bash
+gh repo create CornellCustomDev/your-project-name --private --source=. --remote=origin --push
+```
+
 
 ## Daily use
 
 ```bash
 lando artisan <command>
 lando composer <command>
-lando npm <command>
 ```
+
 
 ## Layout and components
 
