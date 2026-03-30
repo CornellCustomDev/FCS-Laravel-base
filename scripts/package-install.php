@@ -55,8 +55,3 @@ $file = '.gitignore';
 $content = file_get_contents($file);
 $content = preg_replace('/^\/vendor/m', '# /vendor', $content);
 file_put_contents($file, $content);
-
-exec('git init');
-exec('git add .');
-exec('git commit -m "Initial commit"');
-exec('git branch -M main');
