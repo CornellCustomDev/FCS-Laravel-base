@@ -37,7 +37,6 @@ laravel new your-project-name --using=cornell-custom-dev/fcs-laravel-base
 
 cd your-project-name
 mv .env.example.stub .env.example && cp .env.example .env
-php artisan key:generate
 lando start
 ```
 
@@ -52,7 +51,6 @@ After running the installer, `.gitignore` will be configured so you can commit t
 git init
 git add .
 git commit -m "Initial commit"
-git branch -M main
 ```
 
 To create a new GitHub repository with the [GitHub CLI](https://cli.github.com/) based on the new project:
@@ -97,4 +95,4 @@ You can also pass additional attributes to the component and they will be applie
 ```
 Common and defaulted attributes can be found in the component's blade file, generally as `@prop` definitions so that an IDE can provide autocomplete.
 
-The underlying Flux component documentation is linked from the blade file and should be consulted for additional options and usage.
+[Flux component documentation](https://fluxui.dev/docs/installation) should be consulted for additional options and usage.
