@@ -44,4 +44,4 @@ You can also pass additional attributes to the component and they will be applie
 ```
 Common and defaulted attributes can be found in the component's blade file, generally as `@prop` definitions so that an IDE can provide autocomplete.
 
-The underlying Flux component documentation is linked from the blade file and should be consulted for additional options and usage.
+[Flux component documentation](https://fluxui.dev/docs/installation) should be consulted for additional options and usage.
