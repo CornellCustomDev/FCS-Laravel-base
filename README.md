@@ -30,9 +30,19 @@ cd your-project-name
 lando start
 ```
 
-The package-install script in [`/scripts/package-install.php`](scripts/package-install.php) will set up a local git repository and make an initial commit.
+The install will set the project name in `composer.json`, `.lando.yml`,  `.env.example`, and the `README.md`. If you need it to be different, edit those files before running `lando start`.
 
-`lando start` will run composer install and initialize the application, including creating a local MySQL database. After running lando start you will also be able to commit the composer.lock, package-lock.json, and vendor directory.
+`lando start` will run the initial database migration. 
+
+### GitHub setup
+After running the installer, you will also be able to commit the composer.lock, package-lock.json, and vendor directory. Some helpful commands for doing that, after running `lando start`:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+```
 
 To create a new GitHub repository with the [GitHub CLI](https://cli.github.com/) based on the new project:
 
