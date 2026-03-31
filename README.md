@@ -24,18 +24,29 @@ Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json
 
 ## Create a new project
 
+> **IMPORTANT**
+>
+> After running the Laravel installer, You need to replace `.env.example` with `.env.example.stub` because the Laravel installer overwrites it. 
+> 
+> The initial install step will set the project name in `composer.json`, `.lando.yml`,  `.env.example.stub`, and the `README.md`. If you need it to be different, edit those files after running `laravel new ...`.
+
+Follow the steps below, replacing "your-project-name":
+
 ```bash
-laravel new fcs-project-name --using=cornell-custom-dev/fcs-laravel-base
+laravel new your-project-name --using=cornell-custom-dev/fcs-laravel-base
+
 cd your-project-name
+mv .env.example.stub .env.example && cp .env.example .env
+php artisan key:generate
 lando start
 ```
 
-The install will set the project name in `composer.json`, `.lando.yml`,  `.env.example`, and the `README.md`. If you need it to be different, edit those files before running `lando start`.
+
 
 `lando start` will run the initial database migration. 
 
 ### GitHub setup
-After running the installer, you will also be able to commit the composer.lock, package-lock.json, and vendor directory. Some helpful commands for doing that, after running `lando start`:
+After running the installer, `.gitignore` will be configured so you can commit the `composer.lock`, `package-lock.json`, and `vendor` directory. Some helpful commands for doing that, after running `lando start`:
 
 ```bash
 git init
