@@ -78,7 +78,7 @@
         ],
         "post-create-project-cmd": [
             "cp -R vendor/cornell-custom-dev/cds public/",
-            "@php artisan key:generate --ansi"
+            "@php scripts/package-install.php"
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"

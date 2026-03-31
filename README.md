@@ -2,6 +2,7 @@
 
 This is a [Laravel custom starter kit](https://laravel.com/docs/12.x/starter-kits#community-maintained-starter-kits) for FCS projects, including the Cornell Design System and FluxPro component libraries.
 
+
 ## Local credentials
 
 Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json`, which will get mapped into the environment so you can access private repositories:
@@ -20,12 +21,42 @@ Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json
 }
 ```
 
+
 ## Create a new project
 
+> **IMPORTANT**
+>
+> After running the Laravel installer, You need to replace `.env.example` with `.env.example.stub` because the Laravel installer overwrites it. 
+> 
+> The initial install step will set the project name in `composer.json`, `.lando.yml`,  `.env.example.stub`, and the `README.md`. If you need it to be different, edit those files after running `laravel new ...`.
+
+Follow the steps below, replacing "your-project-name":
+
 ```bash
-laravel new fcs-project-name --using=cornell-custom-dev/fcs-laravel-base
+laravel new your-project-name --using=cornell-custom-dev/fcs-laravel-base
+
 cd your-project-name
+mv .env.example.stub .env.example && cp .env.example .env
 lando start
+```
+
+
+
+`lando start` will run the initial database migration. 
+
+### GitHub setup
+After running the installer, `.gitignore` will be configured so you can commit the `composer.lock`, `package-lock.json`, and `vendor` directory. Some helpful commands for doing that, after running `lando start`:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+To create a new GitHub repository with the [GitHub CLI](https://cli.github.com/) based on the new project:
+
+```bash
+gh repo create CornellCustomDev/your-project-name --private --source=. --remote=origin --push
 ```
 
 
@@ -34,8 +65,8 @@ lando start
 ```bash
 lando artisan <command>
 lando composer <command>
-lando npm <command>
 ```
+
 
 ## Layout and components
 
@@ -64,4 +95,4 @@ You can also pass additional attributes to the component and they will be applie
 ```
 Common and defaulted attributes can be found in the component's blade file, generally as `@prop` definitions so that an IDE can provide autocomplete.
 
-The underlying Flux component documentation is linked from the blade file and should be consulted for additional options and usage.
+[Flux component documentation](https://fluxui.dev/docs/installation) should be consulted for additional options and usage.
