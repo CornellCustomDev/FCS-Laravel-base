@@ -5,3 +5,12 @@ config:
   php: 8.3
   cache: none
   composer_version: 2-latest
+
+services:
+  appserver:
+    overrides:
+      volumes:
+        - ${HOME}/.composer/auth.json:/var/www/.composer/auth.json:ro
+    run:
+      # From Laravel composer.json post-create-project-cmd
+      - php artisan migrate --graceful --ansi
