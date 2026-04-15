@@ -15,7 +15,7 @@
         }
     },
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "cornell-custom-dev/cds": "^1.4.3@beta",
         "laravel/framework": "^12.56",
         "laravel/tinker": "^2.11",
