@@ -54,4 +54,6 @@ echo "Commenting out /vendor in .gitignore and initializing git repository...\n"
 $file = '.gitignore';
 $content = file_get_contents($file);
 $content = preg_replace('/^\/vendor/m', '# /vendor', $content);
+$content = preg_replace('/^\/public\/build/m', '# /public/build', $content);
+$content = preg_replace('/^\/public\/cds/m', '# /public/cds', $content);
 file_put_contents($file, $content);
