@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'enabled' => env('BOOST_ENABLED', true),
+    'enabled' => env('BOOST_ENABLED', false),
 
     /*
     |--------------------------------------------------------------------------
