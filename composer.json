@@ -15,9 +15,9 @@
         }
     },
     "require": {
-        "php": "^8.3",
-        "cornell-custom-dev/cds": "^1.4.1@beta",
-        "laravel/framework": "^12.55",
+        "php": "^8.4",
+        "cornell-custom-dev/cds": "^1.4.3@beta",
+        "laravel/framework": "^12.56",
         "laravel/tinker": "^2.11",
         "livewire/flux": "^2.13",
         "livewire/flux-pro": "^2.13",
@@ -29,7 +29,6 @@
         "laravel/boost": "^2.3",
         "laravel/pail": "^1.2",
         "laravel/pint": "^1.29",
-        "laravel/sail": "^1.54",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.9",
         "phpunit/phpunit": "^11.5"
@@ -50,7 +49,6 @@
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php -r \"file_exists('auth.json') || copy('auth.example.json', 'auth.json');\"",
             "cp -R vendor/cornell-custom-dev/cds public/",
             "@php artisan key:generate",
             "@php artisan migrate --force",
@@ -81,9 +79,8 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi",
-            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
+            "cp -R vendor/cornell-custom-dev/cds public/",
+            "@php scripts/package-install.php"
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"

@@ -1,45 +1,78 @@
 # Custom Development FCS Starter Kit
 
-This is a [Laravel custom starter kit](https://laravel.com/docs/12.x/starter-kits#community-maintained-starter-kits) for FCS projects. It includes the Cornell Design System and FluxPro component libraries, as well as some example components.
+This is a [Laravel custom starter kit](https://laravel.com/docs/12.x/starter-kits#community-maintained-starter-kits) for FCS projects, including the Cornell Design System and FluxPro component libraries.
 
-This project is meant to be used via the Laravel installer. You can create a new project with this starter kit by running:
 
-```bash
-laravel new fcs-project-name --using=cornell-custom-dev/fcs-laravel-base
+## Local credentials
+
+Add FluxPro and GitHub credentials to your home directory `~/.composer/auth.json`, which will get mapped into the environment so you can access private repositories:
+
+```json
+{
+    "http-basic": {
+        "composer.fluxui.dev": {
+            "username": "YOUR_FLUXPRO_EMAIL",
+            "password": "YOUR_FLUXPRO_LICENSE_KEY"
+        }
+    },
+    "github-oauth": {
+        "github.com": "YOUR_GITHUB_TOKEN"
+    }
+}
 ```
 
-## Setup
 
-FluxPro components will not be accessible until you provide Flux repo credentials in auth.json.
+## Create a new project
 
-_Note: If you run composer setup inside the lando container you will need to provide a GitHub Token to access the private https://github.com/CornellCustomDev/cds repository._
+> **IMPORTANT**
+>
+> After running the Laravel installer, You need to replace `.env.example` with `.env.example.stub` because the Laravel installer overwrites it. 
+> 
+> The initial install step will set the project name in `composer.json`, `.lando.yml`,  `.env.example.stub`, and the `README.md`. If you need it to be different, edit those files after running `laravel new ...`.
 
-## Run npm
-Run the following commands for local environment:
+Follow the steps below, replacing "your-project-name":
 
-    npm run build
-    lando artisan optimize:clear
+```bash
+laravel new your-project-name --using=cornell-custom-dev/fcs-laravel-base
 
-## Recreate database with User table data:
+cd your-project-name
+mv .env.example.stub .env.example && cp .env.example .env
+lando start
+```
 
-Run this command to recreate your database and seed users table:
 
-    lando artisan migrate:fresh --seed  
 
-**Notes**: The migrate:refresh command will roll back all of your migrations and then execute the migrate command. This command effectively re-creates your entire database.
+`lando start` will run the initial database migration. 
 
-## Layout
+### GitHub setup
+After running the installer, `.gitignore` will be configured so you can commit the `composer.lock`, `package-lock.json`, and `vendor` directory. Some helpful commands for doing that, after running `lando start`:
 
-The Layout is built with the Cornell Design System: https://cornellcustomdev.github.io/cds-docs/
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
 
-Edit the layout starting at [resources/views/components/cds/layout/app.blade.php](resources/views/components/cds/layout/app.blade.php)
+To create a new GitHub repository with the [GitHub CLI](https://cli.github.com/) based on the new project:
 
-## Components
+```bash
+gh repo create CornellCustomDev/your-project-name --private --source=. --remote=origin --push
+```
 
-Components are built with [FluxPro](https://fluxui.dev/docs). Examples of components are at [resources/views/examples/form.blade.php](resources/views/examples/form.blade.php)
 
-Available components:
-- [Text input](resources/views/components/cds/forms/input.blade.php)
+## Daily use
+
+```bash
+lando artisan <command>
+lando composer <command>
+```
+
+
+## Layout and components
+
+- Layout: [resources/views/components/layouts/app.blade.php](resources/views/components/layouts/app.blade.php) — [CDS docs](https://cornellcustomdev.github.io/cds-docs/)
+- Components: [./resources/views/components/cds](resources/views/components/cds) — [FluxPro docs](https://fluxui.dev/docs)
+
 
 ### Using components
 Components are used in blade files with the `<x-cds` syntax. For example, to use the text input forms component, you would write:
@@ -62,4 +95,4 @@ You can also pass additional attributes to the component and they will be applie
 ```
 Common and defaulted attributes can be found in the component's blade file, generally as `@prop` definitions so that an IDE can provide autocomplete.
 
-The underlying Flux component documentation is linked from the blade file and should be consulted for additional options and usage.
+[Flux component documentation](https://fluxui.dev/docs/installation) should be consulted for additional options and usage.
